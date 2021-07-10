@@ -1,0 +1,28 @@
+/*
+    Created on : 10 февр. 2020 г., 10:30:34
+    Author     : Andy Kar
+*/
+@import "../../styles/variables";
+
+.account-profile{
+  .profile-title-wrap{
+    .profile-title{
+      border-bottom: 1px solid;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+  }
+  .profile-data-wrap{
+    .profile-data{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 27.5px;
+    }
+  }
+  .buttons{
+    display: flex;
+    justify-content: flex-end;
+  }
+}

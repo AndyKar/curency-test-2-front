@@ -1,0 +1,237 @@
+/*
+    Created on : 03.09.2019, 06:18:59
+    Author     : Andy Kar
+*/
+
+@import "_variables";
+
+body.white-content{
+  color: $sun-text;
+  background-blend-mode: exclusion;
+
+  .pagination-wrap .pagi-next:after, .pagination-wrap .pagi-prev:after {
+    opacity: 0.4;
+  }
+
+  .border-menu {
+    background: $sun-main-bg;
+    border-color: $sun-grey-lite!important;
+  }
+
+  li.nav-item.active span {
+    color: $sun-active;
+  }
+
+  span:hover{
+    color: $sun-text!important;
+  }
+
+  .dropdown-menu{
+    background: $sun-main-bg!important;
+    li:hover span{
+      color: $sun-text!important;
+    }
+  }
+
+  input{
+    border-color: $sun-grey-lite!important;
+  }
+
+  .main-theme-bg{
+    background-color: $sun-main-bg!important;
+    border-color: $sun-grey-lite!important;
+    color: inherit;
+    *, .nav-tabs{
+      border-color: $sun-grey-lite!important;
+      //fill: $sun-text;
+      color: inherit;
+    }
+    .image-cell .td{
+      background-color: $sun-main-bg!important;
+      border-radius: 10px;
+      color: inherit;
+    }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus,
+    nav-item.active > *, nav-item.active > *:hover, .nav-item.active > *:focus {
+      color: $red;
+    }
+  }
+  .theme-bg{
+    background-color: $sun-main-bg;
+    border-color: $sun-grey-lite!important;
+    color: inherit;
+
+    *, .nav-tabs{
+      border-color: $sun-grey-lite!important;
+      //fill: $sun-text;
+      color: inherit;
+
+      .social-icon-svg{
+        fill: $sun-text;
+      }
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+      color: $red;
+    }
+  }
+
+  .theme-svg{
+    fill: $sun-text;
+    g{
+      fill: $sun-text;
+    }
+    path{
+      fill: $sun-text;
+      stroke: $sun-text;
+    }
+  }
+
+  svg{
+    fill: $sun-text;
+    &:hover{
+      fill: $sun-text;
+    }
+
+    g{
+      fill: $sun-text;
+    }
+  }
+
+  a{
+    color: $sun-text;
+
+    &:hover{
+      color: $sun-active;
+    }
+  }
+
+  h1, h2, h3, h4, p{
+    font-weight: normal;
+    margin-top: 0;
+    color: $sun-text;
+  }
+
+  input, textarea, label{
+    color: $sun-text;
+  }
+
+  .navbar-nav > li > a {
+    color: $sun-text;
+
+    &:hover{
+      color: $sun-active;
+      background-color: transparent;
+    }
+  }
+
+  .form-close:before, .close-icon:before,
+  .form-close:after, .close-icon:after{
+    background: $grey;
+  }
+
+  .theme-border-button{
+    border: 1px solid;
+    border-color: $sun-grey-lite;
+    background: $sun-main-bg;
+    svg{
+      fill: $sun-text;
+      path{
+        fill: $sun-text;
+        stroke: $sun-text;
+      }
+    }
+    span{
+      color: $sun-text;
+    }
+
+    &.button-up{
+      svg path{
+        fill: $sun-grey;
+      }
+    }
+
+    &:hover,&:active,&:focus, &.active>span{
+      border-color: $sun-text!important;
+      color: $sun-active!important;
+      background: $sun-main-bg!important;
+      transform: none!important;
+      svg{
+        fill: $sun-active;
+        path{
+          fill: $sun-active;
+          stroke: $sun-active;
+        }
+      }
+      span{
+        color: $sun-active!important;
+      }
+    }
+  }
+
+  .theme-button{
+    background: $sun-main-bg;
+    color: $sun-active!important;
+    svg{
+      fill: $sun-text;
+      path{
+        fill: $sun-text;
+        stroke: $sun-text;
+      }
+    }
+    span{
+      color: $sun-text;
+    }
+
+    &.button-up{
+      svg path{
+        fill: $sun-grey;
+      }
+    }
+
+
+    &:hover, &.active>span, &.activePath{
+      svg{
+        fill: $sun-active;
+        path{
+          fill: $sun-active;
+          stroke: $sun-active;
+        }
+      }
+      span{
+        color: $sun-active!important;
+      }
+    }
+  }
+
+// _forms.scss --------------------------------
+    .form-group {
+      .react-select-container {
+        background-color: $main-bg;
+        .react-select__control {
+          background-color: $main-bg;
+
+
+          .react-select__value-container {
+
+          }
+
+          .react-select__indicators {
+
+          }
+        }
+
+        .react-select__menu {
+          background-color: $main-bg;
+
+          .react-select__menu-list {
+            background-color: $main-bg;
+          }
+
+          .react-select__option {
+            background-color: $main-bg;
+          }
+        }
+      }
+    }
+}

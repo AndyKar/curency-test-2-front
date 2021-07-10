@@ -1,0 +1,90 @@
+/*
+    Created on : 10 февр. 2020 г., 10:30:34
+    Author     : Andy Kar
+*/
+@import "../../styles/variables";
+
+.contacts-block {
+  margin-bottom: 50px;
+
+  .profile-title-wrap {
+    .profile-title {
+      border-bottom: 1px solid;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .contacts-table{
+    .contacts-table-header, .contacts-table-tr{
+      display: flex;
+      .my-contacts-table-td{
+        padding: 10px;
+        text-align: left;
+
+        &.td-lastname{
+          width: calc((100% - 320px) * 0.33);
+        }
+        &.td-firstname{
+          width: calc((100% - 320px) * 0.33);
+        }
+        &.td-email{
+          width: calc((100% - 320px) * 0.34);
+        }
+        &.td-telephone{
+          width: 200px;
+        }
+        &.td-actions{
+          width: 120px;
+          text-align: right;
+        }
+      }
+
+      .contacts-table-td{
+        padding: 10px;
+        text-align: left;
+
+        &.td-lastname{
+          width: calc((100% - 200px) * 0.33);
+        }
+        &.td-firstname{
+          width: calc((100% - 200px) * 0.33);
+        }
+        &.td-email{
+          width: calc((100% - 200px) * 0.34);
+        }
+        &.td-telephone{
+          text-align: right;
+          width: 200px;
+        }
+      }
+    }
+  }
+  .table{
+    border: none;
+    th{
+      border: none;
+      //border-bottom: 1px solid;
+    }
+    td{
+      border: none;
+
+    }
+  }
+}
+
+.contacts-block-menu{
+  max-width: max-content;
+  padding: 10px 0 0!important;
+  margin: 0 auto 50px;
+
+  .contacts-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      padding: 0 10px;
+    }
+  }
+}

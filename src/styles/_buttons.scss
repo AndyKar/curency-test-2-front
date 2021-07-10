@@ -1,0 +1,47 @@
+/*
+    Created on : 21.10.2018, 16:21:19
+    Author     : inversum
+*/
+@import "_variables";
+
+.but{
+	height: 50px;
+	width: 200px;
+	padding: 0 30px;
+	border: none;
+	border-radius: 25px;
+	font-size: 15px;
+	font-family: 'Roboto-Medium', sans-serif;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 200ms ease;
+
+}
+.but-sm, .btn{
+	height: 40px;
+	padding: 0 25px;
+	border: none;
+	border-radius: 20px;
+	font-size: 13px;
+	font-family: 'Roboto-Medium', sans-serif; 
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	-webkit-justify-content: center;
+	-webkit-align-items: center;
+	width: max-content;
+    margin: 0 auto;
+    border: 1px solid transparent;
+}
+
+.btn{
+	background: transparent!important;
+}

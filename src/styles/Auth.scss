@@ -1,0 +1,33 @@
+/*
+    Created on : 03.09.2019, 06:18:59
+    Author     : Andy Kar
+*/
+
+@import "_variables";
+
+.card{
+  .card-header{
+    color: inherit!important;
+    h4{
+      color: inherit;
+    }
+  }
+  .form-group{
+    width: 100%;
+    label{
+      width: 100%;
+      text-align: left;
+    }
+    input, textarea{
+      background-color: transparent!important;
+    }
+  }
+  &.login-card{
+    text-align: center;
+
+  }
+  button {
+    min-width: 200px;
+    max-width: 100%;
+  }
+}

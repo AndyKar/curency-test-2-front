@@ -1,0 +1,43 @@
+/*
+    Created on : 10 февр. 2020 г., 10:30:34
+    Author     : Andy Kar
+*/
+@import "../../styles/variables";
+
+.account-contacts{
+  .profile-title-wrap{
+    .profile-title{
+      border-bottom: 1px solid;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+  }
+  .contacts-data-wrap{
+    .contacts-data{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      min-height: 35px;
+      margin-bottom: 10px;
+
+      .data-name{
+        font-size: 18px;
+        margin-bottom: 7px;
+        max-width: 70%;
+        line-height: 1.1;
+      }
+
+      .data-value{
+        font-size: 35px;
+        font-weight: 700;
+        opacity: .6;
+        line-height: 1.1;
+      }
+    }
+  }
+  .buttons{
+    display: flex;
+    justify-content: flex-end;
+  }
+}

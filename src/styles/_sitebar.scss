@@ -1,0 +1,19 @@
+.sidebar {
+  height: auto;
+  width: auto;
+  border-radius: 20px;
+
+  .nav {
+      margin-bottom: 50px;
+
+    li > a, .off-canvas-sidebar .nav li > a {
+      display: flex;
+      align-items: center;
+      margin: 0 15px;
+    }
+  }
+
+  .sidebar-wrapper, .off-canvas-sidebar .sidebar-wrapper {
+    max-height: calc(100vh - 150px);
+  }
+}

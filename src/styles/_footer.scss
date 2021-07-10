@@ -1,0 +1,139 @@
+/* 
+    Created on : 08.09.2019, 06:18:59
+    Author     : Andy Kar
+*/
+
+footer{
+	position: relative;
+	margin: 0;
+	border: none;
+	display: flex;
+	flex-direction: column;
+
+	
+	.footer-content-wrap{
+		flex: 1 0 auto;
+		z-index: 9;
+        border-top: 1px solid;
+        border-color: $border;
+       
+        .site-logo-wrap{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 250px;
+            max-width: 100%;
+            
+            
+            
+            .site-logo-img{
+                width: 40px;
+                margin-right: 10px;
+                        
+                .site-logo{
+                    display: block;
+                    max-width: 40px;
+                }
+            }           
+        }
+		
+		.footer-content{
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			padding: 25px 0;
+		}
+		
+		.footer-menu-wrap{
+			-webkit-flex: 0 0 auto;
+			flex: 0 0 auto;
+		}
+        
+        .footer-contacts{
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+
+            .social-contact{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                .social-icon-svg{
+                    margin-right: 8px;
+                }
+
+                .footer-email{
+                    text-decoration: underline;
+                }
+
+                .social-name{
+                    margin-right: 8px;
+                }
+            }
+        }
+        .footer-social{
+            .fa{
+                font-size: 33px;
+                margin-right: 38px;
+            }
+        }
+        
+        .footer-buttons{
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            z-index: 999999;
+
+            .footer-button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                border-radius: 50%;
+                background-color: rgba(127,127,127, 0.23);
+
+                &.button-up{
+                    display: none;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+	}
+	
+/*	.footer-bottom-wrap{
+		background: $dark09;
+		z-index: 9;
+		
+		.footer-bottom{
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			min-height: 40px;
+            padding: 10px 0;
+            
+            #copyright{
+                p{
+                    margin-bottom: 0
+                }
+            }
+			
+			p, a, span{
+				color: $grey;
+			}
+		}
+	}*/
+    
+    .modal_age_check{
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: #181b20;
+        z-index: 999;
+        padding: 20px 20px 0 20px;
+        max-width: 100%;
+    }
+}
