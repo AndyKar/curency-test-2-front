@@ -16,8 +16,23 @@
   }
 
   .contacts-table{
+
+    @media screen and (max-width: 729px) {
+      .contacts-table-header{
+        display: none!important;
+      }
+      .contacts-table-tr {
+        display: block!important;
+
+        .my-contacts-table-td, .contacts-table-td{
+          min-width: 100%!important;
+        }
+      }
+    }
     .contacts-table-header, .contacts-table-tr{
       display: flex;
+
+
       .my-contacts-table-td{
         padding: 10px;
         display: flex;
