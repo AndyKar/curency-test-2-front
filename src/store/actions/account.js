@@ -123,6 +123,38 @@ export function deleteContact(contactId){
 	}
 }
 
+export function addContactToFavorite(contactId){
+	return async dispatch => {
+
+		try{
+			const response = await API.get('/account/contacts/addFavorite&contact_id=' + contactId)
+			console.log('addContactToFavorite', response)
+			if(response.status === 200){
+				dispatch(fetchContacts())
+			}
+		} catch(e){
+			console.log(e)
+			//dispatch(deleteContactError(e))
+		}
+	}
+}
+
+export function deleteContactFromFavorite(contactId){
+	return async dispatch => {
+
+		try{
+			const response = await API.get('/account/contacts/deleteFavorite&contact_id=' + contactId)
+			console.log('deleteContactToFavorite', response)
+			if(response.status === 200){
+				dispatch(fetchContacts())
+			}
+		} catch(e){
+			console.log(e)
+			//dispatch(deleteContactError(e))
+		}
+	}
+}
+
 
 export function fetchContactsStart(){
 	return {

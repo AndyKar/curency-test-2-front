@@ -40,6 +40,10 @@ function accountContacts(props){
 							<span className={'data-value'}>{props.contacts.contacts.length}</span>
 						</div>
 						<div className="contacts-data">
+							<span className={'data-name'}>{text('text_favorite')}</span>
+							<span className={'data-value'}>{props.contacts.favorite_contacts.length}</span>
+						</div>
+						<div className="contacts-data">
 							<span className={'data-name'}>{text('text_customer_contacts')}</span>
 							<span className={'data-value'}>{props.contacts.customer_contacts.length}</span>
 						</div>

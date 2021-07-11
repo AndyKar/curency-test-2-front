@@ -39,6 +39,20 @@ function Contacts(props){
 					<div className="contacts-table-td td-firstname">{result.firstname}</div>
 					<div className="contacts-table-td td-email">{result.email}</div>
 					<div className="contacts-table-td td-telephone">{result.telephone}</div>
+					<div className="contacts-table-td td-actions">
+						{!result.favorite
+							? <Button
+								className="theme-border-button"
+								style={{margin: "0 0 0 auto"}}
+								type="button"
+								color="none"
+								onClick={props.addContactToFavorite.bind(this, result.contact_id)}
+							>
+								<span>В избранное</span>
+							</Button>
+							: null
+						}
+					</div>
 				</div>
 			)
 		})
@@ -54,8 +68,52 @@ function Contacts(props){
 							<div className="contacts-table-td td-firstname">Имя</div>
 							<div className="contacts-table-td td-email">Email</div>
 							<div className="contacts-table-td td-telephone">Телефон</div>
+							<div className="contacts-table-td td-actions">Действия</div>
 						</div>
 						{renderContacts()}
+					</div>
+				</div>
+			</div>
+		)
+	}
+
+	const renderFavoriteContacts = () => {
+		return props.contacts.favorite_contacts.map((result, index) => {
+			return (
+				<div name={"contact-id-" + result.contact_id} className="contacts-table-tr" key={'contacts-tr' + index}>
+					<div className="contacts-table-td td-lastname">{result.lastname}</div>
+					<div className="contacts-table-td td-firstname">{result.firstname}</div>
+					<div className="contacts-table-td td-email">{result.email}</div>
+					<div className="contacts-table-td td-telephone">{result.telephone}</div>
+					<div className="contacts-table-td td-actions">
+						<Button
+							className="theme-border-button"
+							style={{margin: "0 0 0 auto"}}
+							type="button"
+							color="none"
+							onClick={props.deleteContactFromFavorite.bind(this, result.contact_id)}
+						>
+							<span>Удалить</span>
+						</Button>
+					</div>
+				</div>
+			)
+		})
+	}
+
+	const renderFavoriteContactsBlock = () => {
+		return (
+			<div className="table">
+				<div className="table">
+					<div className="contacts-table">
+						<div className="contacts-table-header">
+							<div className="contacts-table-td td-lastname">Фамилия</div>
+							<div className="contacts-table-td td-firstname">Имя</div>
+							<div className="contacts-table-td td-email">Email</div>
+							<div className="contacts-table-td td-telephone">Телефон</div>
+							<div className="contacts-table-td td-actions">Действия</div>
+						</div>
+						{renderFavoriteContacts()}
 					</div>
 				</div>
 			</div>
@@ -117,6 +175,12 @@ function Contacts(props){
 							className={'nav-link'}
 						><RiMapPinUserLine /> {text('text_contacts')}</span>
 					</li>
+					<li className={classNames('nav-item', {active: contactsType === 'favorite'})}>
+						<span
+							onClick={() => setContactsType('favorite')}
+							className={'nav-link'}
+						><RiMapPinUserLine /> {text('text_favorite')}</span>
+					</li>
 					<li className={classNames('nav-item', {active: contactsType === 'my'})}>
 						<span
 							onClick={() => setContactsType('my')}
@@ -126,12 +190,8 @@ function Contacts(props){
 				</ul>
 			</div>
 			{contactsType === 'corp'
-				? <div
-					className="contacts-block main-theme-bg"
-					// onClick={() => { props.history.push('/addresses') }}
-				>
-					{console.log(props)}
-					{props.contacts && props.contacts.contacts
+				? <div className="contacts-block main-theme-bg">
+					{props.contacts && props.contacts.contacts.length
 						? <React.Fragment>
 							<div className="profile-title-wrap">
 								<h3 className={'profile-title'}>
@@ -139,17 +199,17 @@ function Contacts(props){
 									{text('text_contacts')}
 								</h3>
 							</div>
-							{props.contacts.contacts
-								? renderContactsBlock()
-								: <p>{text('text_empty')}</p>
-							}
+							{renderContactsBlock()}
 						</React.Fragment>
-						: null
+						: <div className="message-wrap">
+							<p>{text('text_empty')}</p>
+						</div>
 					}
 				</div>
-				: <div
-					className="contacts-block main-theme-bg"
-				>
+				: null
+			}
+			{contactsType === 'my'
+				? <div className="contacts-block main-theme-bg">
 					{props.contacts && props.contacts.customer_contacts
 						? <React.Fragment>
 							<div className="profile-title-wrap">
@@ -158,15 +218,31 @@ function Contacts(props){
 									{text('text_customer_contacts')}
 								</h3>
 							</div>
-							{props.contacts.customer_contacts
-								? renderMyContactsBlock()
-								: <p>{text('text_empty')}</p>
-							}
-
+							{renderMyContactsBlock()}
 						</React.Fragment>
 						: null
 					}
 				</div>
+				: null
+			}
+			{contactsType === 'favorite'
+				? <div className="contacts-block main-theme-bg">
+					{props.contacts && props.contacts.favorite_contacts.length
+						? <React.Fragment>
+							<div className="profile-title-wrap">
+								<h3 className={'profile-title'}>
+									<RiMapPinUserLine style={{marginBottom: '6px', marginRight: '7px'}}/>
+									{text('text_favorite')}
+								</h3>
+							</div>
+							{renderFavoriteContactsBlock()}
+						</React.Fragment>
+						: <div className="message-wrap">
+							<p>{text('text_empty')}</p>
+						</div>
+					}
+				</div>
+				: null
 			}
 		</React.Fragment>
 	)

@@ -11,7 +11,7 @@ import Account from "../Account/Account";
 import Profile from "../../components/Profile/Profile";
 import Contacts from "../../components/Contacts/Contacts";
 import {fetchInitInfo, changeCurrency, changeLanguage, sendAuthData, logout} from "../../store/actions/main"
-import {sendNewContactData, deleteContact} from "../../store/actions/account"
+import {sendNewContactData, deleteContact, addContactToFavorite, deleteContactFromFavorite} from "../../store/actions/account"
 import Logout from "../../components/Logout/Logout";
 
 class MainLayout extends Component {
@@ -162,6 +162,8 @@ class MainLayout extends Component {
                                                 languageMain={this.props.main.language}
                                                 sendNewContactData={this.props.sendNewContactData}
                                                 deleteContact={this.props.deleteContact}
+                                                addContactToFavorite={this.props.addContactToFavorite}
+                                                deleteContactFromFavorite={this.props.deleteContactFromFavorite}
                                             />
                                         }/>
 
@@ -206,7 +208,9 @@ function mapDispatchToProps(dispatch){
     logout: (callback) => dispatch(logout(callback)),
     sendAuthData: (currentOption, authData) => dispatch(sendAuthData(currentOption, authData)),
     sendNewContactData: (contactData) => dispatch(sendNewContactData(contactData)),
-    deleteContact: (contactId) => dispatch(deleteContact(contactId))
+    deleteContact: (contactId) => dispatch(deleteContact(contactId)),
+    addContactToFavorite: (contactId) => dispatch(addContactToFavorite(contactId)),
+    deleteContactFromFavorite: (contactId) => dispatch(deleteContactFromFavorite(contactId))
   }
 }
 
