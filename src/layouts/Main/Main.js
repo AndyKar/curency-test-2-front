@@ -166,7 +166,7 @@ class MainLayout extends Component {
                                                 deleteContactFromFavorite={this.props.deleteContactFromFavorite}
                                             />
                                         }/>
-
+                                        <Redirect from={'/register'} to={'/account'}/>\
                                   </React.Fragment>
                               }
                          </React.Fragment>
