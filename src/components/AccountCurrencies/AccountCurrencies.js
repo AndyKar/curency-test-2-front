@@ -12,6 +12,7 @@ import './AccountCurrencies.scss'
 import {RiLoginBoxLine, RiUserAddLine, RiLockPasswordLine, RiLogoutBoxRLine} from 'react-icons/ri'
 import {FaRegUserCircle} from 'react-icons/fa'
 import {BsGraphUp} from 'react-icons/bs'
+
 function accountCurrencies(props){
 
 	const text = (prop) => {
@@ -24,10 +25,6 @@ function accountCurrencies(props){
 		if (props.currencies && props.currencies.currencies) {
 			return props.currencies.currencies.map((result, index) => {
 				if(result.charCode === charCode){
-					console.log(charCode, result.nominal)
-					console.log(charCode, result.charCode)
-					console.log(charCode, result.value)
-
 					return (
 						<div className="contacts-data">
 							<span className={'data-name'}>
@@ -46,8 +43,6 @@ function accountCurrencies(props){
 			className="account-contacts main-theme-bg"
 			onClick={() => { props.history.push('/currencies') }}
 		>
-			{console.log('accountCurrencies', props)}
-
 			{props.currencies
 				? <React.Fragment>
 					<div className="profile-title-wrap">

@@ -32,30 +32,6 @@ var ps;
 function Account(props) {
 
     const location = useLocation();
-    const mainPanelRef = React.useRef(null);
-    const [sidebarOpened, setsidebarOpened] = React.useState(
-        document.documentElement.className.indexOf("nav-open") !== -1
-    );
-
-    React.useEffect(() => {
-        if (navigator.platform.indexOf("Win") > -1) {
-            let tables = document.querySelectorAll(".table-responsive");
-            for (let i = 0; i < tables.length; i++) {
-                ps = new PerfectScrollbar(tables[i]);
-            }
-        }
-        document.documentElement.scrollTop = 0;
-        document.scrollingElement.scrollTop = 0;
-        if (mainPanelRef.current) {
-            mainPanelRef.current.scrollTop = 0;
-        }
-    }, [location]);
-    // this function opens and closes the sidebar on small devices
-    const toggleSidebar = () => {
-        document.documentElement.classList.toggle("nav-open");
-        setsidebarOpened(!sidebarOpened);
-    };
-
     // console.log('ACCOUNT PROPS', props)
 
     return (
