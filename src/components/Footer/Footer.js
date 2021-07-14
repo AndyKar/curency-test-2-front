@@ -1,7 +1,5 @@
 import React from "react";
-import logom from "../../image/molekula_red.png"
-import { Container, Nav, NavItem, NavLink } from "reactstrap";
-import Menu from "../ui/nav/Menu";
+import {withRouter} from 'react-router-dom'
 
 function Footer(props) {
   return (
@@ -11,7 +9,10 @@ function Footer(props) {
           <div className="footer-content">
             <div className="site-info">
               <div className="site-logo-wrap">
-                <a href='/' className="header-logo">
+                <div
+                    className="header-logo"
+                    onClick={() => { props.history.push('/account') }}
+                >
                   <svg version="1.0" viewBox="0 0 917.000000 149.000000" preserveAspectRatio="xMidYMid meet" style={{width: "180px", maxWidth: '100%', height: 'auto'}}>
                       <g transform="translate(0.000000,149.000000) scale(0.100000,-0.100000)"
                          fill="#b7b7b8" stroke="none">
@@ -54,33 +55,9 @@ function Footer(props) {
                                                 28 -20 44 -45 59 -31 18 -55 20 -227 23 l-193 4 0 -112z"/>
                       </g>
                   </svg>
-                </a>
+                </div>
               </div>
             </div>
-            {props.footer.data_menu
-              ? <div className="site-menu footer-menu-wrap">
-                  <Menu
-                      categories = {props.footer.data_menu.categories}
-                  />
-              </div>
-              : null
-            }
-            {props.footer.footer_contacts
-                ? <div className="footer-contacts-wrap">
-                    <div className="footer-contacts">
-                        <div className="social-contact">
-                            <svg className="social-icon-svg" width="15" height="12" viewBox="0 0 15 12"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15 9.37661C15 9.7055 14.9065 10.0118 14.7582 10.2794L10.0247 4.9785L14.7098 0.880266C14.8936 1.17046 15.0032 1.50903 15.0032 1.87661L15 9.37661ZM7.5 5.93938L14.0198 0.235383C13.7521 0.0902838 13.4523 0 13.1266 0H1.87661C1.55095 0 1.24785 0.0902838 0.983448 0.235383L7.5 5.93938ZM9.31857 5.59437L7.80954 6.91638C7.72249 6.99377 7.61286 7.03246 7.5 7.03246C7.39037 7.03246 7.28074 6.99377 7.19046 6.91638L5.68143 5.59437L0.886715 10.963C1.17369 11.1436 1.51225 11.25 1.87661 11.25H13.1266C13.491 11.25 13.8295 11.1404 14.1165 10.963L9.31857 5.59437ZM0.293422 0.880266C0.10963 1.16724 0 1.50903 0 1.87661V9.37661C0 9.7055 0.0935082 10.0118 0.241831 10.2794L4.9785 4.9785L0.293422 0.880266Z"/>
-                            </svg>
-                            <span className="social-name">Email:</span>
-                            <a className="social-value footer-email" href={ "mailto:" + props.footer.email }>{ props.footer.footer_contacts.email }</a>
-                        </div>
-                    </div>
-                  </div>
-                : null
-            }
             <div className="footer-buttons">
                 <span className="footer-button button-up theme-border-button">
                     <svg width="25" height="15" viewBox="0 0 25 15" fill="none"
@@ -94,39 +71,8 @@ function Footer(props) {
           </div>
         </div>
       </div>
-
-    {/*//   <Container fluid>*/}
-    {/*//     <Nav>*/}
-    {/*//       <NavItem>*/}
-    {/*//         <NavLink href="https://www.creative-tim.com/?ref=bdr-user-archive-footer">*/}
-    {/*//           Creative Tim*/}
-    {/*//         </NavLink>*/}
-    {/*//       </NavItem>*/}
-    {/*//       <NavItem>*/}
-    {/*//         <NavLink href="https://www.creative-tim.com/presentation?ref=bdr-user-archive-footer">*/}
-    {/*//           About Us*/}
-    {/*//         </NavLink>*/}
-    {/*//       </NavItem>*/}
-    {/*//       <NavItem>*/}
-    {/*//         <NavLink href="https://www.creative-tim.com/blog?ref=bdr-user-archive-footer">*/}
-    {/*//           Blog*/}
-    {/*//         </NavLink>*/}
-    {/*//       </NavItem>*/}
-    {/*//     </Nav>*/}
-    {/*//     <div className="copyright">*/}
-    {/*//       © {new Date().getFullYear()} made with{" "}*/}
-    {/*//       <i className="tim-icons icon-heart-2" /> by{" "}*/}
-    {/*//       <a*/}
-    {/*//         href="https://www.creative-tim.com/?ref=bdr-user-archive-footer"*/}
-    {/*//         target="_blank"*/}
-    {/*//       >*/}
-    {/*//         Creative Tim*/}
-    {/*//       </a>{" "}*/}
-    {/*//       for a better web.*/}
-    {/*//     </div>*/}
-    {/*//   </Container>*/}
     </footer>
   )
 }
 
-export default Footer;
+export default withRouter(Footer);

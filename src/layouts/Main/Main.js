@@ -177,7 +177,7 @@ class MainLayout extends Component {
                                             />
                                         }/>
                                         <Route path="/register" render={() =>
-                                            <Redirect from={'/register'} to={'/account'}/>
+                                          { this.history.push('/account') }
                                         }/>
                                   </React.Fragment>
                               }
