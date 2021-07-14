@@ -41,6 +41,7 @@ function Currencies(props){
 						<div className="currencies-table-td td-num">#</div>
 						<div className="currencies-table-td td-valuteID">valuteID</div>
 						<div className="currencies-table-td td-numCode">numCode</div>
+						<div className="currencies-table-td td-charCode">charCode</div>
 						<div className="currencies-table-td td-name">Наименование</div>
 						<div className="currencies-table-td td-nominal">Номинал</div>
 						<div className="currencies-table-td td-value">Курс</div>
@@ -58,6 +59,7 @@ function Currencies(props){
 					<div className="currencies-table-td td-num">{index + 1}</div>
 					<div className="currencies-table-td td-valuteID">{result.valuteID}</div>
 					<div className="currencies-table-td td-numCode">{result.numCode}</div>
+					<div className="currencies-table-td td-charCode">{result.charCode}</div>
 					<div className="currencies-table-td td-name">{result.name}</div>
 					<div className="currencies-table-td td-nominal">{result.nominal}</div>
 					<div className="currencies-table-td td-value">{result.value}</div>
