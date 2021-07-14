@@ -4,6 +4,7 @@ import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
 import AccountProfile from '../../components/AccountProfile/AccountProfile'
 import AccountContacts from '../../components/AccountContacts/AccountContacts'
+import AccountCurrencies from '../../components/AccountCurrencies/AccountCurrencies'
 // core components
 //import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
@@ -24,6 +25,7 @@ import {
     Form,
     FormFeedback
 } from 'reactstrap';
+import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker";
 
 var ps;
 
@@ -60,14 +62,20 @@ function Account(props) {
         <BackgroundColorContext.Consumer>
             {({color, changeColor}) => (
                 <React.Fragment>
-                        <Row>
-                            <Col md={'12'} lg={'6'} xl={'4'} style={{marginBottom: '30px'}}>
-                                <AccountContacts
-                                    language={props.languageMain}
-                                    contacts={props.contacts}
-                                />
-                            </Col>
-                        </Row>
+                    <Row>
+                        <Col md={'12'} lg={'6'} xl={'4'} style={{marginBottom: '30px'}}>
+                            <AccountContacts
+                                language={props.languageMain}
+                                contacts={props.contacts}
+                            />
+                        </Col>
+                        <Col md={'12'} lg={'6'} xl={'4'} style={{marginBottom: '30px'}}>
+                            <AccountCurrencies
+                                language={props.languageMain}
+                                currencies={props.currencies}
+                            />
+                        </Col>
+                    </Row>
                 </React.Fragment>
             )}
         </BackgroundColorContext.Consumer>

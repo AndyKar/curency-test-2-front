@@ -3,7 +3,7 @@
     Author     : Andy Kar
 */
 
-import React, {Component} from 'react'
+import React from 'react'
 import {withRouter} from 'react-router-dom'
 import ReactHtmlParser from 'react-html-parser'
 import { Container, Row, Col } from 'reactstrap';
@@ -12,6 +12,9 @@ import './AccountContacts.scss'
 import {RiLoginBoxLine, RiUserAddLine, RiLockPasswordLine, RiLogoutBoxRLine} from 'react-icons/ri'
 import {FaRegUserCircle} from 'react-icons/fa'
 import {RiMapPinUserLine} from 'react-icons/ri'
+import CustomDatePicker from "../CustomDatePicker/CustomDatePicker";
+
+
 function accountContacts(props){
 
 	const text = (prop) => {
@@ -25,7 +28,6 @@ function accountContacts(props){
 			className="account-contacts main-theme-bg"
 			onClick={() => { props.history.push('/contacts') }}
 		>
-			{console.log('accountContacts', props)}
 			{props.contacts
 				? <React.Fragment>
 					<div className="profile-title-wrap">

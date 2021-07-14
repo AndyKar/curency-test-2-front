@@ -43,14 +43,8 @@ ReactDOM.render(
                 <Route path="/register" render={(props) => <App {...props} />} />
                 <Redirect from="/user/register" to="/register" />
 
-                <Route path="/forgotten" render={(props) => <App {...props} />} />
-                <Redirect from="/user/forgotten" to="/forgotten" />
-
-                <Route path="/cart" render={(props) => <App {...props} />} />
-                <Redirect from="/user/cart" to="/cart" />
-
-                <Route path="/checkout" render={(props) => <App {...props} />} />
-                <Redirect from="/user/checkout" to="/checkout" />
+                {/*<Route path="/forgotten" render={(props) => <App {...props} />} />*/}
+                {/*<Redirect from="/user/forgotten" to="/forgotten" />*/}
 
                 <Route path="/success" render={(props) => <App {...props} />} />
                 <Redirect from="/user/success" to="/success" />
@@ -61,21 +55,18 @@ ReactDOM.render(
                 <Route path="/logout" render={(props) => <App {...props} />} />
                 <Redirect from="/user/logout" to="/logout" />
 
-                <Route path="/account" render={(props) => <App {...props} />} />
-                <Redirect from="/user/account" to="/account" />
-                <Redirect from="/user" to="/account" />
+                <Route path="/contacts" render={(props) => <App {...props} />} />
+                <Redirect from="/user/contacts" to="/contacts" />
+
+                <Route path="/currencies" render={(props) => <App {...props} />} />
+                <Redirect from="/user/currencies" to="/currencies" />
 
                 <Route path="/profile" render={(props) => <App {...props} />} />
                 <Redirect from="/user/profile" to="/profole" />
 
-                <Route path="/contacts" render={(props) => <App {...props} />} />
-                <Redirect from="/user/addressest" to="/contacts" />
-
-                <Route path="/orders" render={(props) => <App {...props} />} />
-                <Redirect from="/user/orders" to="/orders" />
-
-                <Route path="/rewards" render={(props) => <App {...props} />} />
-                <Redirect from="/user/rewards" to="/rewards" />
+                <Route path="/account" render={(props) => <App {...props} />} />
+                <Redirect from="/user/account" to="/account" />
+                <Redirect from="/user" to="/account" />
 
                 <Redirect from="*" to="/account" />
             </Switch>

@@ -10,6 +10,9 @@ import {
 	FETCH_CONTACTS_START,
 	FETCH_CONTACTS_SUCCESS,
 	FETCH_CONTACTS_ERROR,
+	FETCH_CURRENCIES_START,
+	FETCH_CURRENCIES_SUCCESS,
+	FETCH_CURRENCIES_ERROR,
 	SEND_NEW_CONTACT_START,
 	SEND_NEW_CONTACT_ERROR,
 	SEND_CONTACT_START,
@@ -30,6 +33,7 @@ export function fetchAccountInfo(code='', callback = () => {}){
 				}
 				dispatch(fetchAccountInfoSuccess(info))
 				dispatch(fetchContacts())
+				dispatch(fetchCurrencies())
 
 				callback()
 				const end = new Date()
@@ -60,6 +64,33 @@ export function fetchContacts(){
 		} catch(e){
 			console.log(e)
 			dispatch(fetchContactsError(e))
+		}
+	}
+}
+export function fetchCurrencies(date = null){
+	return async dispatch => {
+		dispatch(fetchCurrenciesStart())
+
+		let curr_date = ''
+		if(date){
+			curr_date = '&date=' + date
+			console.log('&date=' + date)
+		}
+
+		try{
+			const response = await API.get('account/currency/getCurrencies' + curr_date)
+			console.log('FETCH CURRENCIES', response)
+			if(response.status === 200){
+				const info = {
+					currencies: response.data,
+				}
+
+				dispatch(fetchCurrenciesSuccess(info))
+			}
+
+		} catch(e){
+			console.log(e)
+			dispatch(fetchCurrenciesError(e))
 		}
 	}
 }
@@ -170,6 +201,23 @@ export function fetchContactsSuccess(info){
 export function fetchContactsError(e){
 	return {
 		type: FETCH_CONTACTS_ERROR,
+		error: e
+	}
+}
+export function fetchCurrenciesStart(){
+	return {
+		type: FETCH_CURRENCIES_START
+	}
+}
+export function fetchCurrenciesSuccess(info){
+	return {
+		type: FETCH_CURRENCIES_SUCCESS,
+		currencies: info.currencies,
+	}
+}
+export function fetchCurrenciesError(e){
+	return {
+		type: FETCH_CURRENCIES_ERROR,
 		error: e
 	}
 }

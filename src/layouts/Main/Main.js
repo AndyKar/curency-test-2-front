@@ -10,8 +10,9 @@ import Register from "../Auth/Register"
 import Account from "../Account/Account";
 import Profile from "../../components/Profile/Profile";
 import Contacts from "../../components/Contacts/Contacts";
+import Currencies from "../../components/Currencies/Currencies";
 import {fetchInitInfo, changeCurrency, changeLanguage, sendAuthData, logout} from "../../store/actions/main"
-import {sendNewContactData, deleteContact, addContactToFavorite, deleteContactFromFavorite} from "../../store/actions/account"
+import {sendNewContactData, deleteContact, addContactToFavorite, deleteContactFromFavorite, fetchCurrencies} from "../../store/actions/account"
 import Logout from "../../components/Logout/Logout";
 
 class MainLayout extends Component {
@@ -144,6 +145,7 @@ class MainLayout extends Component {
                                                 account={this.props.account}
                                                 //accountEdit={this.props.profile}
                                                 contacts={this.props.contacts}
+                                                currencies={this.props.currencies}
                                                 language={this.props.account.language}
                                                 languageMain={this.props.main.language}
                                             />
@@ -166,7 +168,17 @@ class MainLayout extends Component {
                                                 deleteContactFromFavorite={this.props.deleteContactFromFavorite}
                                             />
                                         }/>
-                                        <Redirect from={'/register'} to={'/account'}/>
+                                        <Route path="/currencies" render={() =>
+                                            <Currencies
+                                                currencies={this.props.currencies}
+                                                language={this.props.account.language}
+                                                languageMain={this.props.main.language}
+                                                fetchCurrencies={this.props.fetchCurrencies}
+                                            />
+                                        }/>
+                                        <Route path="/register" render={() =>
+                                            <Redirect from={'/register'} to={'/account'}/>
+                                        }/>
                                   </React.Fragment>
                               }
                          </React.Fragment>
@@ -185,7 +197,7 @@ class MainLayout extends Component {
 }
 
 function mapStateToProps(state){
-  // console.log('MAIN STATE', state)
+  console.log('MAIN STATE', state)
   //console.log('MAIN STATE SESSION', state.session.session)
   return {
     loading: state.main.loading,
@@ -198,6 +210,7 @@ function mapStateToProps(state){
     account: state.account.account,
     profile: state.account.accountEdit,
     contacts: state.account.contacts,
+    currencies: state.account.currencies,
     session: state.session.session
   }
 }
@@ -208,6 +221,7 @@ function mapDispatchToProps(dispatch){
     logout: (callback) => dispatch(logout(callback)),
     sendAuthData: (currentOption, authData) => dispatch(sendAuthData(currentOption, authData)),
     sendNewContactData: (contactData) => dispatch(sendNewContactData(contactData)),
+    fetchCurrencies: (date) => dispatch(fetchCurrencies(date)),
     deleteContact: (contactId) => dispatch(deleteContact(contactId)),
     addContactToFavorite: (contactId) => dispatch(addContactToFavorite(contactId)),
     deleteContactFromFavorite: (contactId) => dispatch(deleteContactFromFavorite(contactId))

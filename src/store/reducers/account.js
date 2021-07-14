@@ -3,26 +3,28 @@
     Author     : Andy Kar
 */
 import {
-	FETCH_ACCOUNT_INFO_START, FETCH_ACCOUNT_INFO_SUCCESS, FETCH_ACCOUNT_INFO_ERROR,
-	FETCH_ACCOUNT_EDIT_START, FETCH_ACCOUNT_EDIT_SUCCESS, FETCH_ACCOUNT_EDIT_ERROR,
-	FETCH_CONTACTS_START, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR
+	FETCH_ACCOUNT_INFO_START,
+	FETCH_ACCOUNT_INFO_SUCCESS,
+	FETCH_ACCOUNT_INFO_ERROR,
+	FETCH_ACCOUNT_EDIT_START,
+	FETCH_ACCOUNT_EDIT_SUCCESS,
+	FETCH_ACCOUNT_EDIT_ERROR,
+	FETCH_CONTACTS_START,
+	FETCH_CONTACTS_SUCCESS,
+	FETCH_CONTACTS_ERROR,
+	FETCH_CURRENCIES_START,
+	FETCH_CURRENCIES_SUCCESS,
+	FETCH_CURRENCIES_ERROR
 } from '../actions/actionTypes'
-import Dashboard from "views/Dashboard.js";
-import Icons from "../../views/Icons"
-import Map from "views/Map.js";
-import Notifications from "views/Notifications.js";
-//import Rtl from "views/Rtl.js";
-import TableList from "views/TableList.js"
-import Typography from "views/Typography.js"
-import UserProfile from "views/UserProfile.js"
 
-import {Route} from "react-router-dom";
+
 import React from "react";
 
 let initalState = {
 	account: {
 		account: {},
-		contacts: {}
+		contacts: {},
+		currencies: {}
 	},
 }
 
@@ -69,6 +71,21 @@ export default function accountReducer(state = initalState, action){
 				contacts: action.contacts,
 			}
 		case FETCH_CONTACTS_ERROR:
+			return{
+				...state, loading: false, error: action.error
+			}
+
+		case FETCH_CURRENCIES_START:
+			return{
+				...state, loading: true
+			}
+		case FETCH_CURRENCIES_SUCCESS:
+			return{
+				...state,
+				loading: false,
+				currencies: action.currencies,
+			}
+		case FETCH_CURRENCIES_ERROR:
 			return{
 				...state, loading: false, error: action.error
 			}

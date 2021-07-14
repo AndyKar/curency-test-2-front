@@ -1,0 +1,96 @@
+/*
+    Created on : 14 07 2021 г., 23:30:34
+    Author     : Andy Kar
+*/
+@import "../../styles/variables";
+
+.data-picker-wrap{
+  width: 270px;
+  .react-datepicker-wrapper {
+    width: 100%;
+    .delivery-date-icon {
+      position: absolute;
+      opacity: 0.5;
+      top: 8px;
+      right: 13px;
+      z-index: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+.available{
+  color: green!important;
+}
+
+.react-datepicker__day--selected{
+  color: white!important;
+}
+
+.currencies-block {
+  margin-bottom: 50px;
+
+  .profile-title-wrap {
+    .profile-title {
+      border-bottom: 1px solid;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .currencies-table{
+
+    @media screen and (max-width: 729px) {
+      .currencies-table-header{
+        display: none!important;
+      }
+      .currencies-table-tr {
+        display: block!important;
+
+        .currencies-table-td{
+          min-width: 100%!important;
+        }
+      }
+    }
+
+    .currencies-table-header, .currencies-table-tr{
+      display: flex;
+
+      .currencies-table-td{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+
+        &.td-num{
+          width: 50px;
+        }
+        &.td-valuteID{
+          width: 100px;
+        }
+        &.td-numCode{
+          width: 100px;
+        }
+        &.td-name{
+          width: calc(100% - 450px);
+        }
+        &.td-nominal{
+          width: 100px;
+        }
+        &.td-value{
+          width: 100px;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+  .table{
+    border: none;
+    th{
+      border: none;
+    }
+    td{
+      border: none;
+
+    }
+  }
+}
